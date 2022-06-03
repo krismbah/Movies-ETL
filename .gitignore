@@ -1,7 +1,7 @@
 # Adding config.py file.
 config.py
 ratings.csv
-
+*.zip
 
 
 # Adding additional files.
