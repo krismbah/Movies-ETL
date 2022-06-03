@@ -1,5 +1,8 @@
 # Adding config.py file.
 config.py
+ratings.csv
+
+
 
 # Adding additional files.
 API_practice.ipynb
