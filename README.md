@@ -75,16 +75,32 @@ Figure 11:
 
 To summarize, the following tasks were made to help Britta clean the data and perform an ETL:
 
-1. A set of 2000 random latitude and longitude cominations were generated and added to a list.
-2. A request for Open Weather Map's API was run for each of those cities and data was parsed regarding max temperature, humidity, cloudiness, wind speed, country, and weather description.
-3. 703 rows of data were generated and converted to a Pandas DataFrame. This dataframe then was used to create a csv file.
-4. The csv file was imported and beta testers were prompted to chose a minimum and maximum location temperature of cities for vacation. The following cities were then created into a dataframe of preferred cities. The data was cleaned of rows with missing data.
-5. A request for Google's API was run for each of those cities to search for hotels with 5000 meters.
-6. The aforementioned process generated 414 cities. The data was created into a dataframe. Locations without a hotel name were removed.
-7. The aforementioned dataframe was used to generate a csv.
-8. A Google map with a marker layer was generated.
-9. The aforementioned csv of vaction cities was then used to create a vaction dataframe.
-10. Four cities from the map of the dataframe were picked to create a vacation itinerary route to travel between the four cities.
-11. A direction layer map using the start and end latitude-longitude pairs was created. Mode of travel chosen was "Bicycling".
-12. A marker layer map between the four cities was created and used to combine the four city DataFrames into one DataFrame with the concat() function.
-13. Maps of the bicycling route between the four cities and a map of the region were created.
+1. Create a function to read in the three files and give it a name.
+2. Open the Wikipedia JSON file and use the json.load() function to convert the JSON data to raw data.
+3. Read in the raw Wikipedia movie data as a Pandas DataFrame.
+4. Create a path to the Wikipedia data, the Kaggle metadata, and the MovieLens rating data files.
+5. Convert all three files to a DataFrame.
+6. Write a list comprehension to iterate through the cleaned wiki movies list.
+7. Write a try-except block that will catch errors while extracting the IMDb IDs with a regular expression string and dropping any imdb_id duplicates. If there is an error, capture and print the exception.
+8. Write a list comprehension to keep the columns that have non-null values from the DataFrame, then create a wiki_movies_df DataFrame from the list.
+9. Create a variable that will hold all the non-null values from the "Box office" column.
+10. Convert the box office data created to string values using the lambda and join functions.
+11. Write a regular expression to match the six elements of form_one and form_two of the box office data.
+12. Add the code that cleans the box office column in the wiki_movies_df DataFrame using the form_one and form_two lists.
+13. Add code that cleans the "budget" column in the wiki_movies_df DataFrame.
+14. Add code that cleans the "release" column in the wiki_movies_df DataFrame.
+15. Add code that cleans the "running time" column in the wiki_movies_df DataFrame.
+16. Use the variables provided to create a path to the Wikipedia data, the Kaggle metadata, and the MovieLens rating data files.
+17. Set the wiki_movies_df equal to the wiki_file variable.
+18. Merge the wiki_movies_df DataFrame and the kaggle_metadata DataFrames, then name the new DataFrame, movies_df.
+19. Drop unnecessary columns from the movies_df DataFrame.
+20. Add the fill_missing_kaggle_data() function that fills in the missing Kaggle data on the movies_df DataFrame.
+21. Call the fill_missing_kaggle_data() function with the movies_df DataFrame and the Kaggle and Wikipedia columns to be cleaned as the arguments.
+22. Filter the movies_df DataFrame to keep the necessary columns.
+23. Rename the columns in the movies_df DataFrame.
+24. Transform and merge the ratings DataFrame with the movies_df DataFrame, name the new DataFrame movies_with_ratings_df, then clean the movies_with_ratings_df DataFrame.
+25. Use the variables provided to create a path to the Wikipedia data, the Kaggle metadata, and the MovieLens rating data files.
+26. Add the code to create the connection to the PostgreSQL database, then add the movies_df DataFrame to a SQL database.
+27. Add the code that prints out the elapsed time to import each row.
+28. Run the program.
+29. After the program has finished, run a query on the PostgreSQL database that retreives the number of rows for the movies and ratings tables.
